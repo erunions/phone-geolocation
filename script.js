@@ -1,12 +1,12 @@
 "use strict";
 
-const setHeight = () => {
-    document.getElementById("map").style.minHeight = window.innerHeight + "px"
-};
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-let deviceWidth = window.matchMedia("(max-width: 1024px)");
-
-window.addEventListener("resize", setHeight);
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
 
 function createMap(position) {
     const {longitude, latitude} = position.coords;
